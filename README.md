@@ -12,7 +12,7 @@ http / https 的通用代理服务，记录详细的请求及返回日志。
 
 ## help
 
-`
+```
     log4rc -h
     Usage of log4rc:
     -addr string
@@ -35,36 +35,36 @@ http / https 的通用代理服务，记录详细的请求及返回日志。
             skip TLS server verification; insecure
     -v int
             log level
-`
+```
 
 ## 启动方式
 
-·
+```
     nohup  log4rc  &
 
     默认代理端口 50080，日志会生成到当前目录的 martain.log 中
-·
+```
 
-·
+```
     nohup log4rc -skip-connect-log -addr=:9999  -log=/home/log/all.log  -sign=xxxx  &
 
     不记录http/s 的连接日志， 指定代理端口9999， 指定log文件， 指定请求签名
-·
+```
 
 
 ## 请求demo
 
-·
+```
     curl -x 127.0.0.1:50080 -k -d "abcdefgxxxx"  "https://www.baidu.com"
 
     请求为 https 时需要客户端工作在insecure模式，正常阿里云或者服务器机房中域名不可能被串改，insecure的通信依然是ssl加密的，所以不用担心安全问题。
     curl 的 insecure 模式参数 为： -k 
-·
+```
 
 
 ## 日志格式举例
 
-`
+```
 {
     "_id": "e536410602b155f8",
     "startedDateTime": "2020-08-11T04:35:48.285336Z",
@@ -181,7 +181,7 @@ http / https 的通用代理服务，记录详细的请求及返回日志。
         "receive": 0
     }
 }
-`
+```
 
 日志中每对请求为一行json序列化后的文本。
 
